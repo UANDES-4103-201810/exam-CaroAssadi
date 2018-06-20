@@ -1,3 +1,8 @@
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -23,6 +28,14 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
           <%= link_to 'Cart', orderpizzas_path %>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+        <% if costumer_signed_in? %>
+          <%= link_to 'Log Out', destroy_costumer_session_path, :method => :delete %>
+          <%else%>
+          <%= link_to '| Log In |   ', new_costumer_session_path %>
+          <%= link_to 'Sign Up |', new_costumer_registration_path %>
+          <% end %>
         </ul>
 
       </div>

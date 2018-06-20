@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :costumers
   resources :deliveryinfos
   resources :ingpizzas
   resources :ingredients

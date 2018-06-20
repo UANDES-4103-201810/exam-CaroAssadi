@@ -14,8 +14,8 @@
   <tbody>
     <% @ingpizzas.each do |ingpizza| %>
       <tr>
-        <td><%= ingpizza.ingredient %></td>
-        <td><%= ingpizza.pizza %></td>
+        <td><%= ingpizza.ingredient.name %></td>
+        <td><%= ingpizza.pizza.name %></td>
         <td><%= link_to 'Show', ingpizza %></td>
         <td><%= link_to 'Edit', edit_ingpizza_path(ingpizza) %></td>
         <td><%= link_to 'Destroy', ingpizza, method: :delete, data: { confirm: 'Are you sure?' } %></td>

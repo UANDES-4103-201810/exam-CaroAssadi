@@ -1,4 +1,77 @@
 <p id="notice"><%= notice %></p>
 
+
+<h1><%=@pizza.name%></h1>
+
+
+
+<br>
+
+
+
+<br>
+
+<button id="myBtn" data-toggle="modal" class= "btn btn-success" data-target="#myModal<%=@pizza.id %>">Add to Cart</button>
+
+<!-- The Modal -->
+<div id="myModal<%=@pizza.id %>" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Pizza</h2>
+    </div>
+    <div class="modal-body">
+      <%= form_for Orderpizza.new do |f|%>
+
+        <%= f.hidden_field :order_id, :value => 1 %>
+        <%= f.hidden_field :pizza_id, :value => @pizza.id %>
+        <%= f.label :payment %>
+        <%= f.text_field :payment %>
+
+        </div>
+        <div class="modal-footer">
+          <%= f.submit "Add to cart", class: "btn btn-primary"%>
+      <% end %>
+      </div>
+      <div class="modal-footer">
+        <h3></h3>
+      </div>
+      </div>
+
+</div>
+
+<button id="myBtn" data-toggle="modal" class= "btn btn-success" data-target="#myModal1">Choose Crust</button>
+
+<!-- The Modal -->
+<div id="myModal1" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Pizza</h2>
+    </div>
+    <div class="modal-body">
+      <%= form_for Crust.new do |f|%>
+
+        <%= f.hidden_field :pizza_id, :value => @pizza.id %>
+        <%= f.label :type %>
+        <%= f.text_field :type %>
+        <%= f.hidden_field :price, :value => 1 %>
+
+        </div>
+        <div class="modal-footer">
+          <%= f.submit "Choose crust", class: "btn btn-primary"%>
+      <% end %>
+      </div>
+      <div class="modal-footer">
+        <h3></h3>
+      </div>
+      </div>
+
+</div>
+
 <%= link_to 'Edit', edit_pizza_path(@pizza) %> |
 <%= link_to 'Back', pizzas_path %>

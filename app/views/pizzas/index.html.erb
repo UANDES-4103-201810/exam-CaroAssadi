@@ -2,26 +2,59 @@
 
 <h1>Pizzas</h1>
 
-<table>
-  <thead>
+<button id="myBtn" data-toggle="modal" class= "btn btn-succes" data-target="#myModal">Generate a Cart</button>
 
-    <tr>
-      <th colspan="10"></th>
-    </tr>
-  </thead>
+<!-- The Modal -->
+<div id="myModal" class="modal">
 
-  <tbody>
-  <tr>
-    <% @pizzas.each do |pizza| %>
-        <td><%=pizza.name%></td>
-        <td colspan="10"></td>
-        <td><%= link_to 'Show', pizza %></td>
-        <td colspan="10"></td>
-    <% end %>
-  </tr>
-  </tbody>
-</table>
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Pizza</h2>
+    </div>
+    <div class="modal-body">
+      <%= form_for Order.new do |f|%>
+        <% if costumer_signed_in? %>
+            <%= f.hidden_field :customer_id, :value => current_costumer.id %>
+         <%else%>
+            <%= f.hidden_field :customer_id, :value => 1%>
+          <%end%>
 
-<br>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit "Generate a Cart", class: "btn btn-primary"%>
+      <% end %>
+      </div>
+      <div class="modal-footer">
+        <h3></h3>
+      </div>
+      </div>
+
+</div>
+
+</div>
+
+<div class="row">
+  <% @pizzas.each do |pizza| %>
+
+      <div class="col-sm-4">
+          <%=link_to pizza.name, pizza_path(pizza) %>
+        <br>
+        <br>
+
+
+
+
+
+    </div>
+  <%end%>
+</div>
+
+
+
+
+
+    <br>
 
 <%= link_to 'New Pizza', new_pizza_path %>

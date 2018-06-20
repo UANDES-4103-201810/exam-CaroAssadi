@@ -19,7 +19,7 @@
         <td><%= deliveryinfo.address1 %></td>
         <td><%= deliveryinfo.address2 %></td>
         <td><%= deliveryinfo.phone %></td>
-        <td><%= deliveryinfo.order %></td>
+        <td><%= deliveryinfo.order.id %></td>
         <td><%= link_to 'Show', deliveryinfo %></td>
         <td><%= link_to 'Edit', edit_deliveryinfo_path(deliveryinfo) %></td>
         <td><%= link_to 'Destroy', deliveryinfo, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -8,4 +8,5 @@
 
 pizzas = Pizza.create([{name: 'Pizza1'}, {name: 'Pizza2'}])
 ingredients = Ingredient.create([{name: 'Mozzarella'}, {name: 'Pepperoni'},{name:'Tomato'},{name:'Olives'}])
-#ingpizzas = Ingpizza.create([{ingredient:1,pizza:1}, {ingredient:1, pizza:2},{ingredient:2, pizza:2},{ingredient:3, pizza:1}])
+ingpizzas = Ingpizza.create([{ingredient:1,pizza:1}, {ingredient:1, pizza:2},{ingredient:2, pizza:'2'},{ingredient:'3', pizza:'1'}])
+recipe = Recipe.create([{price:10},{price:20}])
