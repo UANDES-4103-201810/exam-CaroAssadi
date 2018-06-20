@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Deliveryinfos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Address1</th>
+      <th>Address2</th>
+      <th>Phone</th>
+      <th>Order</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @deliveryinfos.each do |deliveryinfo| %>
+      <tr>
+        <td><%= deliveryinfo.address1 %></td>
+        <td><%= deliveryinfo.address2 %></td>
+        <td><%= deliveryinfo.phone %></td>
+        <td><%= deliveryinfo.order %></td>
+        <td><%= link_to 'Show', deliveryinfo %></td>
+        <td><%= link_to 'Edit', edit_deliveryinfo_path(deliveryinfo) %></td>
+        <td><%= link_to 'Destroy', deliveryinfo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Deliveryinfo', new_deliveryinfo_path %>
